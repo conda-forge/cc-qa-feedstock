@@ -1,5 +1,5 @@
 {% set name = "cc-qa" %}
-{% set version = "0.2.0" %}
+{% set version = "0.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,15 +7,15 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/cc_qa-{{ version }}.tar.gz
-  sha256: 6398d1aa405d24120af7c60ba513758b80ff05a901d22da507204fd774154367
+  sha256: 1a137b3d860bfc3b45a5800354aa0aa9eb82eb4297c824abbe2cee95fde9e207
 
 build:
   entry_points:
     - ccqa = cc_qa.run_qa:main
   noarch: python
   script:
-   - rm -rf dist
-   - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    - rm -rf dist
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
